@@ -34,7 +34,7 @@
     $group_field = $_SESSION['recorded_sortby'][0]['field'];
     if ($group_field == "")
         $group_field = "airdate";
-    elseif ( ! (($group_field == "title") || ($group_field == "channum") || ($group_field == "airdate") || ($group_field == "recgroup")) )
+    elseif ( ! (($group_field == "title") || ($group_field == "channum") || ($group_field == "airdate") || ($group_field == "recgroup") || ($group_field == "hostname")) )
         $group_field = "";
 
 ?>
@@ -92,6 +92,7 @@
 ?>
     <th class="x-length"><?php   echo get_sort_link('length',    t('Length'));    ?></th>
     <th class="x-filesize"><?php echo get_sort_link('file_size', t('File Size')); ?></th>
+    <th class="x-hostname"><?php echo get_sort_link('hostname', t('Backend')); ?></th>
 </tr><?php
     $row     = 0;
     $section = -1;
@@ -129,11 +130,14 @@
             case 'title':
                 $cur_group = $show->title;
                 break;
+            case 'hostname':
+                $cur_group = $show->hostname;
+                break;
         }
 
         if ( $cur_group != $prev_group && $group_field != '' ) {
             $section++;
-            $colspan = 11 + $recgroup_cols;
+            $colspan = 12 + $recgroup_cols;
             print <<<EOM
 <tr id="breakrow_$section" class="list_separator">
     <td colspan="$colspan" class="list_separator">$cur_group</td>
@@ -187,6 +191,7 @@ EOM;
 ?>
     <td class="x-length"><?php echo nice_length($show->length) ?></td>
     <td class="x-filesize"><?php echo nice_filesize($show->filesize) ?></td>
+    <td class="x-hostname"><?php echo $show->hostname ?></td>
     <td class="x-commands commands" rowspan="2"><?php
         if ($show->endtime > time()) {
             echo '<a href="', root_url, 'tv/detail/', $show->chanid, '/', $show->recstartts, '">',
@@ -216,7 +221,7 @@ EOM;
         </td>
 </tr><tr id="statusrow_<?php echo $row ?>" class="recorded statusrow">
     <td colspan="6" valign="top"><?php echo $show->description ?></td>
-    <td colspan="<?php echo 2 + $recgroup_cols ?>" class="x-progflags"><?php
+    <td colspan="<?php echo 3 + $recgroup_cols ?>" class="x-progflags"><?php
         // Auto expire is interactive
             echo '<a onclick="set_autoexpire(', $row, ')" class="_autoexpire">',
                  '<img id="autoexpire_', $row, '" src="', skin_url, '/img/flags/';

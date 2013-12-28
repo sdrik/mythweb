@@ -235,3 +235,7 @@
         if ($a->transcoder == $b->transcoder) return 0;
         return ($a->transcoder > $b->transcoder) ? 1 : -1;
     }
+
+    function by_hostname(&$a, &$b) {
+        return strcasecmp($a->hostname, $b->hostname);
+    }

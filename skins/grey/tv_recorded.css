@@ -78,6 +78,10 @@
     white-space:    nowrap;
     text-align:     center;
 }
+#recorded_list th.x-hostname a, #recorded_list td.x-hostname {
+    white-space:    nowrap;
+    text-align:     center;
+}
 
 #recorded_list td.x-commands {
     padding:            0;

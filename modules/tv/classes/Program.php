@@ -255,6 +255,19 @@ class Program extends MythBase {
     // Find out which css category this program falls into
         if ($this->chanid != '')
             $this->css_class = category_class($this);
+    // If syndicatedepisodenumber is provided but not season/episode then use this instead
+        if (empty($this->season) && empty($this->episode) && !empty($this->syndicatedepisodenumber)) {
+            if (preg_match('/^E([0-9]+)S([0-9]+)$/', $this->syndicatedepisodenumber, $matches)) {
+                $this->season = $matches[2];
+                $this->episode = $matches[1];
+            } elseif (preg_match('/^S([0-9]+)$/', $this->syndicatedepisodenumber, $matches)) {
+                $this->season = $matches[1];
+                $this->episode = 0;
+            } elseif (preg_match('/^E([0-9]+)$/', $this->syndicatedepisodenumber, $matches)) {
+                $this->season = 1;
+                $this->episode = $matches[1];
+            }
+        }
     // Create the fancy description
         $this->update_fancy_desc();
     }

@@ -150,7 +150,7 @@ EOM;
             echo "    <td class=\"list\" rowspan=\"2\">&nbsp;</td>\n";
 ?>
     <td rowspan="2" class="x-pixmap<?php
-        if ($_SESSION['recorded_pixmaps']) { ?>"><?php
+        if ($_SESSION['recorded_pixmaps'] && in_array($show->hostname, $online_backends)) { ?>"><?php
         $padding = 39 - (50 / $show->getAspect());
         if ($padding > 0) { ?>
         <div style="height: <?php echo $padding; ?>px; width: 100px; float: left;">

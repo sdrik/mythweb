@@ -189,6 +189,10 @@
         define(disk_used, ($used * 1024));
     }
 
+// Get the list of online backends to avoid requesting unavailable previews
+    $online_backends = MythBackend::find()->sendCommand('QUERY_ACTIVE_BACKENDS');
+    array_shift($online_backends);
+
 // Load the class for this page
     require_once tmpl_dir.'recorded.php';
 

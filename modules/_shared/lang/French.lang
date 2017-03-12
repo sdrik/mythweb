@@ -353,6 +353,8 @@
     Recherche personnalisée
 "Customize Screens"
     Personnaliser les écrans
+"Cutlist Editor"
+    Editeur de liste de coupes
 "Damaged"
     Endommagé(e)
 "Data"
@@ -441,6 +443,8 @@
     Diffusion antérieure
 "Edit"
     Éditer
+"Edit Cutlist"
+    Éditer la liste de coupes
 "Edit existing group"
     Éditer le groupe existant
 "Edit MythWeb and some MythTV settings."
@@ -577,6 +581,8 @@
     possède un signet
 "Has Cutlist"
     possède une liste de coupes
+"Has no Cutlist"
+    ne possède pas de liste de coupes
 "HD"
     HD
 "HDTV"

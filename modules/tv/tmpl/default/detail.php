@@ -277,8 +277,12 @@
                 echo '<img src="'.skin_url.'/img/flags/hd.png" title="'.t('HD').'">';
             if ($program->has_commflag)
                 echo '<img src="'.skin_url.'/img/flags/commflagged.png" title="'.t('Commercials Flagged').'">';
+            echo '<a href="', root_url, 'tv/cutlist/', $program->chanid, '/', $program->recstartts, '" title="', t('Edit Cutlist'), '">';
             if ($program->has_cutlist)
                 echo '<img src="'.skin_url.'/img/flags/cutlist.png" title="'.t('Has Cutlist').'">';
+            else
+                echo '<img src="'.skin_url.'/img/flags/no_cutlist.png" title="'.t('Has no Cutlist').'">';
+            echo '</a>';
             if ($program->bookmark)
                 echo '<img src="'.skin_url.'/img/flags/bookmark.png" title="'.t('has Bookmark').'">';
             if ($program->is_watched)

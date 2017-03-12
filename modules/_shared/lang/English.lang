@@ -183,6 +183,7 @@
 "Custom Schedule"
 "Custom Search"
 "Customize Screens"
+"Cutlist Editor"
 "Damaged"
 "Data"
 "Database"
@@ -229,6 +230,7 @@
 "Earlier"
 "Earlier Showing"
 "Edit"
+"Edit Cutlist"
 "Edit existing group"
 "Edit MythWeb and some MythTV settings."
 "Edit settings for: $1"
@@ -302,6 +304,7 @@
     Some examples of complex searches possible with the listings.
 "has Bookmark"
 "Has Cutlist"
+"Has no Cutlist"
 "HD"
 "HDTV"
 "Height"

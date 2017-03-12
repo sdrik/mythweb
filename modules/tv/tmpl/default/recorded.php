@@ -245,8 +245,12 @@ EOM;
                 echo '<img src="'.skin_url.'/img/flags/damaged.png"    height=22      title="'.t('Damaged').'"                  alt="">';
             if ($show->has_commflag)
                 echo '<img src="'.skin_url.'/img/flags/commflagged.png" title="'.t('Commercials Flagged').'" alt="">';
+            echo '<a href="', root_url, 'tv/cutlist/', $show->chanid, '/', $show->recstartts, '" title="', t('Edit Cutlist'), '">';
             if ($show->has_cutlist)
                 echo '<img src="'.skin_url.'/img/flags/cutlist.png"     title="'.t('Has Cutlist').'"         alt="">';
+            else
+                echo '<img src="'.skin_url.'/img/flags/no_cutlist.png"  title="'.t('Has no Cutlist').'"      alt="">';
+            echo '</a>';
             if ($show->bookmark)
                 echo '<img src="'.skin_url.'/img/flags/bookmark.png"    title="'.t('has Bookmark').'"        alt="">';
             if ($show->is_watched)

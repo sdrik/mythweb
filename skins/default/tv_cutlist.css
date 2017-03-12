@@ -1,0 +1,9 @@
+.frame-preview {
+	text-align: center;
+}
+.navigator * {
+	vertical-align: middle;
+}
+.navigator>* {
+	display: inline-block;
+}
